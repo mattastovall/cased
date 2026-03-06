@@ -615,7 +615,7 @@
       <section class="hero">
         <div class="tech-marker" aria-hidden="true"></div>
         <div class="hero-copy">
-          <div class="eyebrow">Fal Generation Analysis</div>
+          <div class="eyebrow">FAL Generation Examples</div>
           <h1>CASED Examples</h1>
         </div>
         <div class="tech-marker" aria-hidden="true"></div>
@@ -1129,7 +1129,6 @@
       ]);
 
       const buildCard = (request, index) => {
-        const payloadJson = JSON.stringify(request.payload, null, 2);
         const isKlingVideo = request.endpoint === "fal-ai/kling-video/v3/pro/image-to-video";
         const linkOverride = modelLinkOverrides[request.endpoint] || {};
         const modelPageUrl = linkOverride.model || (request.model?.model_id ? `https://fal.ai/models/${request.model.model_id}` : null);
@@ -1181,35 +1180,11 @@
             <div class="details-body">
               <div class="link-row">
                 ${modelPageUrl ? `<a class="inline-link" href="${escapeHtml(modelPageUrl)}" target="_blank" rel="noreferrer">Model</a>` : ""}
-                ${endpointUrl ? `<a class="inline-link" href="${escapeHtml(endpointUrl)}" target="_blank" rel="noreferrer">Endpoint</a>` : ""}
               </div>
 
               <section class="section">
                 <div class="section-title">Model Settings</div>
                 <div class="settings">${buildSettings(request.model_settings)}</div>
-              </section>
-
-              <section class="section">
-                <div class="section-title">Request Summary</div>
-                <div class="summary-grid">
-                  <div class="summary-box">
-                    <span class="summary-label">Endpoint</span>
-                    <span class="summary-value">${escapeHtml(request.endpoint || "n/a")}</span>
-                  </div>
-                  <div class="summary-box">
-                    <span class="summary-label">Request ID</span>
-                    <span class="summary-value">${escapeHtml(request.request_id || "n/a")}</span>
-                  </div>
-                </div>
-                <div class="badge-row">
-                  <span class="badge">${escapeHtml(request.model?.model_id || "unknown model")}</span>
-                  <span class="badge">${escapeHtml(request.model?.operation || "unknown operation")}</span>
-                </div>
-              </section>
-
-              <section class="section">
-                <div class="section-title">Payload</div>
-                <pre>${escapeHtml(payloadJson)}</pre>
               </section>
             </div>
           </details>

@@ -1133,6 +1133,7 @@
         const linkOverride = modelLinkOverrides[request.endpoint] || {};
         const modelPageUrl = linkOverride.model || (request.model?.model_id ? `https://fal.ai/models/${request.model.model_id}` : null);
         const endpointUrl = linkOverride.endpoint || (request.endpoint ? `https://fal.ai/models/${request.endpoint}` : null);
+        const endpointLabel = request.endpoint ? request.endpoint.replace(/^fal-ai\//i, "") : null;
         const inputItems = (request.input_image_urls || []).map((url, inputIndex) => {
           if (isKlingVideo) {
             return {
@@ -1152,7 +1153,7 @@
         article.innerHTML = `
           <div class="card-header">
             <div class="card-header-top">
-              <div class="section-title">${endpointUrl ? `<a class="section-title-link" href="${escapeHtml(endpointUrl)}" target="_blank" rel="noreferrer">${escapeHtml(request.endpoint || endpointUrl)}</a>` : escapeHtml(request.endpoint || `RQ-${String(index + 1).padStart(2, "0")}`)}</div>
+              <div class="section-title">${endpointUrl ? `<a class="section-title-link" href="${escapeHtml(endpointUrl)}" target="_blank" rel="noreferrer">${escapeHtml(endpointLabel || endpointUrl)}</a>` : escapeHtml(endpointLabel || `RQ-${String(index + 1).padStart(2, "0")}`)}</div>
             </div>
             <h2 class="card-title">${formatRequestTitle(request.request_name)}</h2>
           </div>

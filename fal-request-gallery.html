@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CASED Fal Request Gallery</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap");
 
       :root {
-        --bg: #d6d6d2;
-        --ink: #101214;
-        --muted: #6d706a;
-        --line: rgba(16, 18, 20, 0.18);
-        --line-strong: rgba(16, 18, 20, 0.44);
+        --bg: #050506;
+        --ink: #e8e8e8;
+        --muted: #818181;
+        --line: rgba(232, 232, 232, 0.12);
+        --line-strong: rgba(232, 232, 232, 0.24);
         --accent: #ff9f0a;
-        --shadow: 0 24px 60px rgba(17, 18, 20, 0.08);
+        --shadow: none;
       }
 
       * {
@@ -30,8 +30,8 @@
         min-height: 100vh;
         position: relative;
         color: var(--ink);
-        font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
-        background: linear-gradient(180deg, #dbdbd7 0%, #d1d1cd 100%);
+        font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #0a0b0c 0%, #030304 100%);
       }
 
       body::before {
@@ -41,9 +41,9 @@
         pointer-events: none;
         opacity: 0.58;
         background:
-          linear-gradient(rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.14)),
-          repeating-linear-gradient(90deg, rgba(16, 18, 20, 0.03) 0 1px, transparent 1px 120px),
-          repeating-linear-gradient(180deg, rgba(16, 18, 20, 0.025) 0 1px, transparent 1px 120px);
+          linear-gradient(rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.012)),
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 120px),
+          repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.016) 0 1px, transparent 1px 120px);
       }
 
       a {
@@ -103,6 +103,7 @@
       }
 
       h1 {
+        font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
         font-size: clamp(2.7rem, 5vw, 4.8rem);
         line-height: 0.94;
         letter-spacing: -0.055em;
@@ -110,56 +111,50 @@
       }
 
       .hero-copy p {
+        font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
         max-width: 72ch;
         line-height: 1.55;
         color: var(--muted);
         font-size: 1rem;
       }
 
-      .header-stats {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .stat-chip {
-        min-width: 120px;
-        padding: 10px 12px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.28);
-      }
-
-      .stat-chip .label {
-        display: block;
-        margin-bottom: 4px;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.67rem;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-
-      .stat-chip .value {
-        display: block;
-        font-size: 0.96rem;
-        line-height: 1.3;
+      .gallery {
+        margin-top: 24px;
       }
 
       .grid {
-        column-count: 3;
-        column-gap: 18px;
-        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 0;
+        align-items: start;
+      }
+
+      .request-group {
+        margin-top: 48px;
+      }
+
+      .request-group:first-of-type {
+        margin-top: 0;
+      }
+
+      .group-heading {
+        margin-bottom: 14px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.76rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
       }
 
       .card {
         display: grid;
         gap: 18px;
         width: 100%;
-        margin: 0 0 18px;
+        margin: 0;
         padding: 18px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.018);
         box-shadow: var(--shadow);
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
@@ -179,29 +174,10 @@
       }
 
       .card-title {
+        font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
         font-size: 1.3rem;
         line-height: 1.05;
         letter-spacing: -0.04em;
-      }
-
-      .title-with-tag {
-        display: inline-flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .title-tag {
-        display: inline-flex;
-        align-items: center;
-        padding: 4px 8px;
-        border: 1px solid var(--line);
-        background: rgba(255, 159, 10, 0.12);
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.68rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
       }
 
       .section {
@@ -217,6 +193,17 @@
         color: var(--muted);
       }
 
+      .section-title-link {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 0.16em;
+        cursor: pointer;
+      }
+
+      .section-title-link:hover {
+        text-decoration-color: var(--accent);
+      }
+
       .subtle {
         color: var(--muted);
         line-height: 1.55;
@@ -227,13 +214,18 @@
         appearance: none;
         padding: 8px 12px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.035);
         color: var(--ink);
         cursor: pointer;
         font-family: "IBM Plex Mono", monospace;
         font-size: 0.71rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+
+      .copy-button.compact {
+        padding: 4px 8px;
+        font-size: 0.64rem;
       }
 
       .copy-button:hover {
@@ -244,6 +236,18 @@
         display: grid;
         gap: 10px;
         grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+        justify-content: start;
+        justify-items: start;
+      }
+
+      .input-section .media-grid {
+        gap: 8px;
+        grid-template-columns: repeat(auto-fit, 76px);
+        justify-content: start;
+      }
+
+      .input-section .asset-caption {
+        font-size: 0.64rem;
       }
 
       .asset-meta {
@@ -257,7 +261,7 @@
         padding: 0;
         overflow: hidden;
         border: 1px solid var(--line);
-        background: #0c1a2d;
+        background: #101112;
         cursor: pointer;
         transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
       }
@@ -291,7 +295,7 @@
 
       .details-toggle {
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.018);
         overflow: hidden;
       }
 
@@ -342,8 +346,9 @@
         gap: 8px;
         padding: 8px 12px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.26);
-        text-decoration: none;
+        background: rgba(255, 255, 255, 0.035);
+        text-decoration: underline;
+        text-underline-offset: 0.16em;
         font-family: "IBM Plex Mono", monospace;
         font-size: 0.72rem;
         letter-spacing: 0.08em;
@@ -391,7 +396,7 @@
         align-items: center;
         padding: 5px 8px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.035);
         font-family: "IBM Plex Mono", monospace;
         font-size: 0.74rem;
         letter-spacing: 0.04em;
@@ -408,7 +413,7 @@
         min-width: 120px;
         padding: 8px 10px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.035);
         display: inline-grid;
         gap: 4px;
       }
@@ -433,8 +438,8 @@
         overflow: auto;
         padding: 16px;
         border: 1px solid var(--line);
-        background: rgba(9, 19, 34, 0.96);
-        color: #dbe8fb;
+        background: rgba(12, 13, 14, 0.96);
+        color: #e8e8e8;
         font-family: "IBM Plex Mono", monospace;
         font-size: 0.76rem;
         line-height: 1.5;
@@ -446,7 +451,8 @@
       }
 
       .status {
-        padding: 14px 2px 0;
+        padding: 12px 2px 12px;
+        margin-top: 24px;
         border-top: 1px solid var(--line-strong);
         font-family: "IBM Plex Mono", monospace;
         font-size: 0.72rem;
@@ -464,9 +470,9 @@
         inset: 0;
         z-index: 20;
         display: grid;
-        place-items: center;
+        place-items: start;
         padding: 20px;
-        background: rgba(5, 10, 18, 0.68);
+        background: rgba(10, 12, 14, 0.68);
         backdrop-filter: blur(10px);
       }
 
@@ -475,8 +481,8 @@
         max-height: 90vh;
         overflow: auto;
         border: 1px solid var(--line);
-        background: #cfd1cb;
-        box-shadow: 0 32px 80px rgba(17, 18, 20, 0.24);
+        background: #0b0c0d;
+        box-shadow: none;
       }
 
       .modal-header {
@@ -494,15 +500,38 @@
       }
 
       .modal-title {
+        font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
         font-size: 1rem;
         font-weight: 600;
       }
 
       .modal-subtitle {
         color: var(--muted);
-        font-family: "IBM Plex Mono", monospace;
+        font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
         font-size: 0.75rem;
         word-break: break-all;
+      }
+
+      .modal-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .modal-download {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.035);
+        color: var(--ink);
+        text-decoration: none;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .modal-close {
@@ -510,7 +539,7 @@
         width: 42px;
         height: 42px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.34);
+        background: rgba(255, 255, 255, 0.035);
         color: var(--ink);
         cursor: pointer;
       }
@@ -523,7 +552,7 @@
         min-height: 360px;
         display: grid;
         place-items: center;
-        background: #091322;
+        background: #08090a;
       }
 
       .modal-stage img,
@@ -536,7 +565,7 @@
 
       @media (max-width: 1100px) {
         .grid {
-          column-count: 2;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
@@ -555,8 +584,8 @@
         }
 
         .grid {
-          column-count: 1;
-          column-gap: 0;
+          grid-template-columns: 1fr;
+          gap: 18px;
         }
       }
 
@@ -584,15 +613,13 @@
       <section class="hero">
         <div class="tech-marker" aria-hidden="true"></div>
         <div class="hero-copy">
-          <div class="eyebrow">Fal Output Diagnostics</div>
-          <h1>CASED Request Gallery</h1>
-          <p>Technical review console for embedded FAL requests, rendered outputs, source inputs, and model configuration.</p>
-          <div id="header-stats" class="header-stats"></div>
+          <div class="eyebrow">Fal Generation Analysis</div>
+          <h1>CASED Examples</h1>
         </div>
         <div class="tech-marker" aria-hidden="true"></div>
       </section>
 
-      <section id="card-grid" class="grid"></section>
+      <section id="card-grid" class="gallery"></section>
       <div id="status" class="status">
         Loading embedded request data...
       </div>
@@ -605,7 +632,10 @@
             <div id="modal-title" class="modal-title"></div>
             <div id="modal-subtitle" class="modal-subtitle"></div>
           </div>
-          <button id="modal-close" class="modal-close" type="button" aria-label="Close">×</button>
+          <div class="modal-actions">
+            <a id="modal-download" class="modal-download" href="#" download>Download</a>
+            <button id="modal-close" class="modal-close" type="button" aria-label="Close">×</button>
+          </div>
         </div>
         <div class="modal-body">
           <div id="modal-stage" class="modal-stage"></div>
@@ -868,8 +898,8 @@
         "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e948f06d96b.png"
       },
       "input_image_urls": [
-        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e948f06d96b.png",
-        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/164503e98ef4.png"
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/164503e98ef4.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e948f06d96b.png"
       ],
       "output_image_urls": [],
       "output_video_urls": [
@@ -922,7 +952,6 @@
     </script>
 
     <script>
-      const headerStats = document.getElementById("header-stats");
       const grid = document.getElementById("card-grid");
       const status = document.getElementById("status");
       const dataset = JSON.parse(document.getElementById("request-data").textContent);
@@ -930,6 +959,7 @@
       const modalTitle = document.getElementById("modal-title");
       const modalSubtitle = document.getElementById("modal-subtitle");
       const modalStage = document.getElementById("modal-stage");
+      const modalDownload = document.getElementById("modal-download");
       const modalClose = document.getElementById("modal-close");
 
       const modelLinkOverrides = {
@@ -971,53 +1001,13 @@
           .replace(/\b\w/g, (char) => char.toUpperCase());
 
       const formatRequestTitle = (name) => {
-        const parts = String(name || "")
+        return escapeHtml(
+          String(name || "")
           .split("-")
           .filter(Boolean)
-          .map((part) => part.charAt(0).toUpperCase() + part.slice(1));
-
-        const last = parts[parts.length - 1];
-        if (last === "Image" || last === "Video") {
-          const base = parts.slice(0, -1).join(" ");
-          return `
-            <span class="title-with-tag">
-              <span>${escapeHtml(base)}</span>
-              <span class="title-tag">${escapeHtml(last)}</span>
-            </span>
-          `;
-        }
-
-        return escapeHtml(parts.join(" "));
-      };
-
-      const buildHeaderStats = () => {
-        const totals = (dataset.requests || []).reduce(
-          (summary, request) => {
-            summary.outputs += (request.output_image_urls?.length || 0) + (request.output_video_urls?.length || 0);
-            summary.inputs += request.input_image_urls?.length || 0;
-            return summary;
-          },
-          { outputs: 0, inputs: 0 }
+          .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+          .join(" ")
         );
-
-        headerStats.innerHTML = `
-          <div class="stat-chip">
-            <span class="label">Requests</span>
-            <span class="value">${escapeHtml(dataset.request_count || 0)}</span>
-          </div>
-          <div class="stat-chip">
-            <span class="label">Outputs</span>
-            <span class="value">${escapeHtml(totals.outputs)}</span>
-          </div>
-          <div class="stat-chip">
-            <span class="label">Inputs</span>
-            <span class="value">${escapeHtml(totals.inputs)}</span>
-          </div>
-          <div class="stat-chip">
-            <span class="label">Generated</span>
-            <span class="value">${escapeHtml(formatDate(dataset.generated_at))}</span>
-          </div>
-        `;
       };
 
       const buildSettings = (settings) => {
@@ -1085,6 +1075,8 @@
       const openAssetModal = (kind, url, label) => {
         modalTitle.textContent = label || (kind === "video" ? "Video" : "Image");
         modalSubtitle.textContent = url;
+        modalDownload.href = url;
+        modalDownload.download = `${(label || (kind === "video" ? "video" : "image")).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "asset"}.${kind === "video" ? "mp4" : "png"}`;
         modalStage.innerHTML = kind === "video"
           ? `<video controls autoplay muted loop playsinline src="${escapeHtml(url)}"></video>`
           : `<img src="${escapeHtml(url)}" alt="${escapeHtml(label || "Asset")}">`;
@@ -1095,6 +1087,8 @@
       const closeAssetModal = () => {
         modal.hidden = true;
         modalStage.innerHTML = "";
+        modalDownload.href = "#";
+        modalDownload.download = "";
         document.body.style.overflow = "";
       };
 
@@ -1116,6 +1110,21 @@
         document.body.removeChild(textarea);
         return didCopy;
       };
+
+      const isVideoRequest = (request) => {
+        if (request.output_video_urls?.length) return true;
+        if (request.model?.operation?.includes("video")) return true;
+        return request.request_name?.toLowerCase().endsWith("-video") || false;
+      };
+
+      const requestDisplayPriority = {
+        "chestplate-from-Ref-image": 0,
+        "chestplate-ansysSimulation-image": 1
+      };
+
+      const hiddenRequestNames = new Set([
+        "chestplate-strike-video"
+      ]);
 
       const buildCard = (request, index) => {
         const payloadJson = JSON.stringify(request.payload, null, 2);
@@ -1142,11 +1151,9 @@
         article.innerHTML = `
           <div class="card-header">
             <div class="card-header-top">
-              <div class="section-title">RQ-${String(index + 1).padStart(2, "0")} / ${escapeHtml(request.model?.operation || "Unknown")}</div>
-              <button class="copy-button" type="button" data-copy-prompt="${escapeHtml(request.payload?.prompt || "")}">Copy Prompt</button>
+              <div class="section-title">${endpointUrl ? `<a class="section-title-link" href="${escapeHtml(endpointUrl)}" target="_blank" rel="noreferrer">${escapeHtml(request.endpoint || endpointUrl)}</a>` : escapeHtml(request.endpoint || `RQ-${String(index + 1).padStart(2, "0")}`)}</div>
             </div>
             <h2 class="card-title">${formatRequestTitle(request.request_name)}</h2>
-            <p class="subtle">${escapeHtml(request.payload?.prompt || "No prompt recorded.")}</p>
           </div>
 
           <section class="section">
@@ -1155,6 +1162,14 @@
           </section>
 
           <section class="section">
+            <div class="card-header-top">
+              <div class="section-title">Prompt</div>
+              <button class="copy-button compact" type="button" data-copy-prompt="${escapeHtml(request.payload?.prompt || "")}">Copy Prompt</button>
+            </div>
+            <p class="subtle">${escapeHtml(request.payload?.prompt || "No prompt recorded.")}</p>
+          </section>
+
+          <section class="section input-section">
             <div class="section-title">${isKlingVideo ? "Frames" : "Inputs"}</div>
             ${buildImageGrid(inputItems)}
           </section>
@@ -1202,11 +1217,46 @@
 
       const renderDataset = (sourceDataset, sourceLabel) => {
         grid.innerHTML = "";
-        buildHeaderStats();
-        (sourceDataset.requests || []).forEach((request, index) => {
-          grid.appendChild(buildCard(request, index));
+        const requests = (sourceDataset.requests || []).filter((request) => !hiddenRequestNames.has(request.request_name));
+        const groupedRequests = [
+          {
+            title: "Video Examples",
+            items: requests.filter((request) => isVideoRequest(request))
+          },
+          {
+            title: "Image Examples",
+            items: requests.filter((request) => !isVideoRequest(request))
+          }
+        ];
+
+        groupedRequests.forEach((group) => {
+          if (!group.items.length) return;
+
+          const section = document.createElement("section");
+          section.className = "request-group";
+
+          const heading = document.createElement("div");
+          heading.className = "group-heading";
+          heading.textContent = group.title;
+          section.appendChild(heading);
+
+          const groupGrid = document.createElement("div");
+          groupGrid.className = "grid";
+          group.items
+            .slice()
+            .sort((left, right) => {
+              const leftPriority = requestDisplayPriority[left.request_name] ?? Number.MAX_SAFE_INTEGER;
+              const rightPriority = requestDisplayPriority[right.request_name] ?? Number.MAX_SAFE_INTEGER;
+              return leftPriority - rightPriority;
+            })
+            .forEach((request, index) => {
+            groupGrid.appendChild(buildCard(request, index));
+            });
+
+          section.appendChild(groupGrid);
+          grid.appendChild(section);
         });
-        status.innerHTML = `Loaded ${escapeHtml(sourceDataset.request_count || 0)} requests from <code>${escapeHtml(sourceLabel)}</code> / <code>${escapeHtml(sourceDataset.project_ref || "no project")}</code> / <code>${escapeHtml(sourceDataset.bucket || "no bucket")}</code>`;
+        status.innerHTML = `Loaded ${escapeHtml(sourceDataset.request_count || 0)} requests from <code>${escapeHtml(sourceLabel)}</code> / <code>${escapeHtml(sourceDataset.bucket || "no bucket")}</code>`;
       };
 
       grid.addEventListener("click", async (event) => {

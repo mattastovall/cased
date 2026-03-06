@@ -1,0 +1,305 @@
+{
+  "generated_at": "2026-03-05T22:51:01.219392",
+  "project_ref": "vxdmipbkwsbsmnxzdppz",
+  "bucket": "cased",
+  "request_count": 7,
+  "requests": [
+    {
+      "request_name": "chestplate-ansysSimulation-image",
+      "request_id": "ebb68d49-5118-4cad-8401-d92d83eb0bcd",
+      "endpoint": "fal-ai/nano-banana-2/edit",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/nano-banana-2",
+        "operation": "edit"
+      },
+      "model_settings": {
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836945
+      },
+      "payload": {
+        "prompt": "show this exact model in ANSYS (LS-DYNA / Mechanical) undergoing energy absorption and deformation simulations, same angle as reference",
+        "image_urls": [
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/2d81baecb86f.png"
+        ],
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836945
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/2d81baecb86f.png"
+      ],
+      "output_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-images/c857f626ea36.png"
+      ],
+      "output_video_urls": []
+    },
+    {
+      "request_name": "chestplate-from-Ref-image",
+      "request_id": "d1a7f4ea-606b-484e-b79f-aa9317a0e68c",
+      "endpoint": "fal-ai/nano-banana-2/edit",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/nano-banana-2",
+        "operation": "edit"
+      },
+      "model_settings": {
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836946
+      },
+      "payload": {
+        "prompt": "generate a 3d rendering of this chest padding on a black background, the material of the padding should grey made out of a dense foam, base the padding pattern and shape on the attached diagram. Use the blue padding render as a reference for render camera angle and lighting. The padding should be in the shape of the breastplate in the photo. ",
+        "image_urls": [
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/132652a143c6.png",
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/25577e8cccff.png",
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/3c3abe49499b.png"
+        ],
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836946
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/132652a143c6.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/3c3abe49499b.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/25577e8cccff.png"
+      ],
+      "output_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-images/62e8a79adbfc.png"
+      ],
+      "output_video_urls": []
+    },
+    {
+      "request_name": "chestplate-labsetting-image",
+      "request_id": "0ca69035-8cdd-448f-aa33-8dbef3148b14",
+      "endpoint": "fal-ai/nano-banana-2/edit",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/nano-banana-2",
+        "operation": "edit"
+      },
+      "model_settings": {
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "2K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836946
+      },
+      "payload": {
+        "prompt": "show this exact chest plate padding  undergoing impact tests in a lab setting, close up, .heic, slowmo. empty background behind plate",
+        "image_urls": [
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/2d81baecb86f.png"
+        ],
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "2K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836946
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/2d81baecb86f.png"
+      ],
+      "output_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-images/5bb3c8a47718.png"
+      ],
+      "output_video_urls": []
+    },
+    {
+      "request_name": "chestplate-loop-video",
+      "request_id": "e9c02029-58cf-4fcd-bbb1-57fb61d35c02",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/kling-video/v3/pro",
+        "operation": "image-to-video"
+      },
+      "model_settings": {
+        "multi_prompt": null,
+        "duration": "6",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5
+      },
+      "payload": {
+        "prompt": "Animate the chestplate twisting and flexing in mid-air to showcase its extreme flexibility, with the diamond-shaped cells shifting, compressing, and stretching as the material warps before it naturally returns to its original flat position",
+        "multi_prompt": null,
+        "start_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/0692aa24c5cf.png",
+        "duration": "6",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5,
+        "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/21bf55cddf6a.png"
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/0692aa24c5cf.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/21bf55cddf6a.png"
+      ],
+      "output_image_urls": [],
+      "output_video_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-videos/537596987758.mp4"
+      ]
+    },
+    {
+      "request_name": "chestplate-reveal-video",
+      "request_id": "6330136a-2989-43e1-82f3-fbafeae8a637",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/kling-video/v3/pro",
+        "operation": "image-to-video"
+      },
+      "model_settings": {
+        "multi_prompt": null,
+        "duration": "4",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5
+      },
+      "payload": {
+        "prompt": "reveal the black chest pad by materializing the chest piece from the outward in, the effect focus on the diamond structure of the foam. Instead of the plate appearing as one solid chunk, it assembles cell-by-cell",
+        "multi_prompt": null,
+        "start_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/ff72013b2fde.png",
+        "duration": "4",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5,
+        "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/6436b144ee26.png"
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/ff72013b2fde.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/6436b144ee26.png"
+      ],
+      "output_image_urls": [],
+      "output_video_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-videos/1b2527b77161.mp4"
+      ]
+    },
+    {
+      "request_name": "chestplate-strike-video",
+      "request_id": "e194240a-6686-4d76-a4b4-8fedecaa4fed",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/kling-video/v3/pro",
+        "operation": "image-to-video"
+      },
+      "model_settings": {
+        "multi_prompt": null,
+        "duration": "4",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5
+      },
+      "payload": {
+        "prompt": "show the impact instrument strike the center of the chestplate causing a slighty ripple in the center, slow mo",
+        "multi_prompt": null,
+        "start_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/164503e98ef4.png",
+        "duration": "4",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5,
+        "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e948f06d96b.png"
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e948f06d96b.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/164503e98ef4.png"
+      ],
+      "output_image_urls": [],
+      "output_video_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-videos/5a4b4428437c.mp4"
+      ]
+    },
+    {
+      "request_name": "chestplate-twist-video",
+      "request_id": "a0e9b428-f67b-476b-a361-bb4ce7a47737",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/kling-video/v3/pro",
+        "operation": "image-to-video"
+      },
+      "model_settings": {
+        "multi_prompt": null,
+        "duration": "6",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5
+      },
+      "payload": {
+        "prompt": "Animate the chestplate twisting and flexing in mid-air to showcase its extreme flexibility, with the diamond-shaped cells shifting, compressing, and stretching as the material warps before it naturally returns to its original flat position",
+        "multi_prompt": null,
+        "start_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e7a2e0caba0.png",
+        "duration": "6",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5,
+        "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/b98284b35f55.png"
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/b98284b35f55.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e7a2e0caba0.png"
+      ],
+      "output_image_urls": [],
+      "output_video_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-videos/4414108e274f.mp4"
+      ]
+    }
+  ]
+}

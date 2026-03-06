@@ -1,0 +1,86 @@
+Endpoint
+fal-ai/nano-banana-2/edit
+Request ID
+
+d1a7f4ea-606b-484e-b79f-aa9317a0e68c
+Status
+200
+Duration
+
+40.05s
+Created
+
+about 9 hours ago
+Cost
+
+$0.0800
+Runner ID
+b141a568
+Auth Method
+
+themes-test
+
+Timing
+
+Input
+
+{
+  "prompt": "generate a 3d rendering of this chest padding on a black background, the material of the padding should grey made out of a dense foam, base the padding pattern and shape on the attached diagram. Use the blue padding render as a reference for render camera angle and lighting. The padding should be in the shape of the breastplate in the photo. ",
+  "image_urls": [
+    "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772729788027-image.png",
+    "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772730565894-image.png",
+    "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772730438614-image.png"
+  ],
+  "num_images": 1,
+  "aspect_ratio": "16:9",
+  "resolution": "1K",
+  "output_format": "png",
+  "safety_tolerance": "4",
+  "limit_generations": true,
+  "enable_web_search": false,
+  "sync_mode": false,
+  "seed": 1523836946
+}
+
+Output
+
+{
+  "images": [
+    {
+      "url": "https://v3b.fal.media/files/b/0a90f904/tdYZuYT7FAM32_XG0MFsX_b8z9SZGb.png",
+      "content_type": "image/png",
+      "file_name": "tdYZuYT7FAM32_XG0MFsX_b8z9SZGb.png",
+      "file_size": null,
+      "width": null,
+      "height": null
+    }
+  ],
+  "description": ""
+}
+
+Code
+
+HTTP (cURL)
+
+response=$(curl --request POST \
+  --url https://queue.fal.run/fal-ai/nano-banana-2/edit \
+  --header "Authorization: Key $FAL_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{
+     "prompt": "generate a 3d rendering of this chest padding on a black background, the material of the padding should grey made out of a dense foam, base the padding pattern and shape on the attached diagram. Use the blue padding render as a reference for render camera angle and lighting. The padding should be in the shape of the breastplate in the photo. ",
+     "image_urls": [
+       "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772729788027-image.png",
+       "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772730565894-image.png",
+       "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772730438614-image.png"
+     ],
+     "num_images": 1,
+     "aspect_ratio": "16:9",
+     "resolution": "1K",
+     "output_format": "png",
+     "safety_tolerance": "4",
+     "limit_generations": true,
+     "enable_web_search": false,
+     "sync_mode": false,
+     "seed": 1523836946
+   }')
+REQUEST_ID=$(echo "$response" | grep -o '"request_id": *"[^"]*"' | sed 's/"request_id": *//; s/"//g')

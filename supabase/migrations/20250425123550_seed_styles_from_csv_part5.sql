@@ -1,0 +1,22 @@
+-- Continue inserting styles from CSV data (part 5)
+INSERT INTO styles (name, slug, thumb_url, json) VALUES
+('Neo Retro Graphic Thriller Aesthetic Detailed', 'neo-retro-graphic-thriller-aesthetic-detailed', 'https://assets-themes.s3.amazonaws.com/generations/style_neo_retro_graphic_thriller_aesthetic_detailed.png', '{}'),
+('Neo Tokyo Mecha Aesthetic', 'neo-tokyo-mecha-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neo_tokyo_mecha_aesthetic.png', '{}'),
+('Neocosmic Acid Aesthetic', 'neocosmic-acid-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neocosmic_acid_aesthetic.png', '{}'),
+('Neon Decay Green Aesthetic', 'neon-decay-green-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_decay_green_aesthetic.png', '{}'),
+('Neon Doomwave Aesthetic Detailed', 'neon-doomwave-aesthetic-detailed', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_doomwave_aesthetic_detailed.png', '{}'),
+('Neon Fluid Dreamscape Aesthetic', 'neon-fluid-dreamscape-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_fluid_dreamscape_aesthetic.png', '{}'),
+('Neon Folklore Dreamscape Aesthetic', 'neon-folklore-dreamscape-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_folklore_dreamscape_aesthetic.png', '{}'),
+('Neon Glass Futurism Aesthetic', 'neon-glass-futurism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_glass_futurism_aesthetic.png', '{}'),
+('Neon Gloss Icon Aesthetic', 'neon-gloss-icon-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_gloss_icon_aesthetic.png', '{}'),
+('Neon Glow Stroke Relic Aesthetic', 'neon-glow-stroke-relic-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_glow_stroke_relic_aesthetic.png', '{}'),
+('Neon Glowcore Aesthetic Detailed', 'neon-glowcore-aesthetic-detailed', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_glowcore_aesthetic_detailed.png', '{}'),
+('Neon Noir Anime Portrait Aesthetic', 'neon-noir-anime-portrait-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_noir_anime_portrait_aesthetic.png', '{}'),
+('Neon Synth Apocalypse Aesthetic', 'neon-synth-apocalypse-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neon_synth_apocalypse_aesthetic.png', '{}'),
+('Neonnoir Hyperglam Dystofunk Aesthetic', 'neonnoir-hyperglam-dystofunk-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neonnoir_hyperglam_dystofunk_aesthetic.png', '{}'),
+('Neonnoir Romanticisolation Aesthetic Detailed', 'neonnoir-romanticisolation-aesthetic-detailed', 'https://assets-themes.s3.amazonaws.com/generations/style_neonnoir_romanticisolation_aesthetic_detailed.png', '{}'),
+('Neonrift Chroma Aesthetic', 'neonrift-chroma-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neonrift_chroma_aesthetic.png', '{}'),
+('Neoretro Sunset Animeframe Aesthetic', 'neoretro-sunset-animeframe-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_neoretro_sunset_animeframe_aesthetic.png', '{}'),
+('Noir Deco Aesthetic', 'noir-deco-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_noir_deco_aesthetic.png', '{}'),
+('Noir Moody Realism Aesthetic Detailed', 'noir-moody-realism-aesthetic-detailed', 'https://assets-themes.s3.amazonaws.com/generations/style_noir_moody_realism_aesthetic_detailed.png', '{}'),
+('Occult Ink Pulp Aesthetic', 'occult-ink-pulp-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_occult_ink_pulp_aesthetic.png', '{}');

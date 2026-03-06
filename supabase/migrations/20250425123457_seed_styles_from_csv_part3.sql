@@ -1,0 +1,22 @@
+-- Continue inserting styles from CSV data (part 3)
+INSERT INTO styles (name, slug, thumb_url, json) VALUES
+('Floral Dreamscape Fantasy Aesthetic', 'floral-dreamscape-fantasy-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_floral_dreamscape_fantasy_aesthetic.png', '{}'),
+('Fogcore Hazerealism', 'fogcore-hazerealism', 'https://assets-themes.s3.amazonaws.com/generations/style_fogcore_hazerealism.png', '{}'),
+('Fogwashed Neo Painterly Aesthetic', 'fogwashed-neo-painterly-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_fogwashed_neo_painterly_aesthetic.png', '{}'),
+('Fungal Antique Decay Aesthetic', 'fungal-antique-decay-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_fungal_antique_decay_aesthetic.png', '{}'),
+('Glitch Punk Neo Toon Aesthetic', 'glitch-punk-neo-toon-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_glitch_punk_neo_toon_aesthetic.png', '{}'),
+('Glitchpop Analogcore Aesthetic', 'glitchpop-analogcore-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_glitchpop_analogcore_aesthetic.png', '{}'),
+('Glittercore Cosmic Cuteness Aesthetic', 'glittercore-cosmic-cuteness-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_glittercore_cosmic_cuteness_aesthetic.png', '{}'),
+('Glittery Rainbow Pastel Surrealism Aesthetic', 'glittery-rainbow-pastel-surrealism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_glittery_rainbow_pastel_surrealism_aesthetic.png', '{}'),
+('Gloss Toycore Hypercreature Aesthetic', 'gloss-toycore-hypercreature-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_gloss_toycore_hypercreature_aesthetic.png', '{}'),
+('Glossy Dolltech Synthpop Aesthetic', 'glossy-dolltech-synthpop-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_glossy_dolltech_synthpop_aesthetic.png', '{}'),
+('Glossy Twilight Fantasy Aesthetic', 'glossy-twilight-fantasy-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_glossy_twilight_fantasy_aesthetic.png', '{}'),
+('Glowcore Synthetic Spirit Aesthetic', 'glowcore-synthetic-spirit-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_glowcore_synthetic_spirit_aesthetic.png', '{}'),
+('Gold Lux Disco Aesthetic', 'gold-lux-disco-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_gold_lux_disco_aesthetic.png', '{}'),
+('Gradientcore Synthetic Surrealism Aesthetic', 'gradientcore-synthetic-surrealism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_gradientcore_synthetic_surrealism_aesthetic.png', '{}'),
+('Graphic Green Surrealism Aesthetic', 'graphic-green-surrealism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_graphic_green_surrealism_aesthetic.png', '{}'),
+('Greenlight District Aesthetic', 'greenlight-district-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_greenlight_district_aesthetic.png', '{}'),
+('Halftone Vaporprint Neonretro Aesthetic', 'halftone-vaporprint-neonretro-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_halftone_vaporprint_neonretro_aesthetic.png', '{}'),
+('Horror Etching Aesthetic', 'horror-etching-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_horror_etching_aesthetic.png', '{}'),
+('Hyperchrome Minimal Surrealism Aesthetic', 'hyperchrome-minimal-surrealism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_hyperchrome_minimal_surrealism_aesthetic.png', '{}'),
+('Hyperminimal Surrealism Aesthetic', 'hyperminimal-surrealism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_hyperminimal_surrealism_aesthetic.png', '{}');

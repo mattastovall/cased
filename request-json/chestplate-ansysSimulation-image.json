@@ -1,0 +1,15 @@
+{
+  "prompt": "show this exact model in ANSYS (LS-DYNA / Mechanical) undergoing energy absorption and deformation simulations, same angle as reference",
+  "image_urls": [
+    "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772731459020-26fccc6d-3b74-44c1-a4c9-8654355aab16%20(1).png"
+  ],
+  "num_images": 1,
+  "aspect_ratio": "16:9",
+  "resolution": "1K",
+  "output_format": "png",
+  "safety_tolerance": "4",
+  "limit_generations": true,
+  "enable_web_search": false,
+  "sync_mode": false,
+  "seed": 1523836945
+}

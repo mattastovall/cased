@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CASED Fal Request Gallery</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+      :root {
+        --bg: #d6d6d2;
+        --ink: #101214;
+        --muted: #6d706a;
+        --line: rgba(16, 18, 20, 0.18);
+        --line-strong: rgba(16, 18, 20, 0.44);
+        --accent: #ff9f0a;
+        --shadow: 0 24px 60px rgba(17, 18, 20, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--bg);
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        position: relative;
+        color: var(--ink);
+        font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #dbdbd7 0%, #d1d1cd 100%);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.58;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.14)),
+          repeating-linear-gradient(90deg, rgba(16, 18, 20, 0.03) 0 1px, transparent 1px 120px),
+          repeating-linear-gradient(180deg, rgba(16, 18, 20, 0.025) 0 1px, transparent 1px 120px);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button,
+      input,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .shell {
+        position: relative;
+        max-width: 1680px;
+        margin: 0 auto;
+        padding: 0 24px 24px;
+      }
+
+      .hero {
+        min-height: 220px;
+        display: grid;
+        grid-template-columns: 72px 1fr 72px;
+        align-items: center;
+        border-bottom: 1px solid var(--line-strong);
+      }
+
+      .tech-marker {
+        justify-self: center;
+        width: 16px;
+        height: 5px;
+        background: var(--ink);
+      }
+
+      .hero-copy {
+        display: grid;
+        gap: 16px;
+        justify-items: center;
+        text-align: center;
+        padding: 36px 20px;
+      }
+
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.76rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 5vw, 4.8rem);
+        line-height: 0.94;
+        letter-spacing: -0.055em;
+        font-weight: 700;
+      }
+
+      .hero-copy p {
+        max-width: 72ch;
+        line-height: 1.55;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .header-stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .stat-chip {
+        min-width: 120px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      .stat-chip .label {
+        display: block;
+        margin-bottom: 4px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.67rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .stat-chip .value {
+        display: block;
+        font-size: 0.96rem;
+        line-height: 1.3;
+      }
+
+      .grid {
+        column-count: 3;
+        column-gap: 18px;
+        margin-top: 24px;
+      }
+
+      .card {
+        display: grid;
+        gap: 18px;
+        width: 100%;
+        margin: 0 0 18px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.18);
+        box-shadow: var(--shadow);
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .card-header {
+        display: grid;
+        gap: 12px;
+      }
+
+      .card-header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+      }
+
+      .title-with-tag {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .title-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 8px;
+        border: 1px solid var(--line);
+        background: rgba(255, 159, 10, 0.12);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .section {
+        display: grid;
+        gap: 10px;
+      }
+
+      .section-title {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .subtle {
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 0.97rem;
+      }
+
+      .copy-button {
+        appearance: none;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.24);
+        color: var(--ink);
+        cursor: pointer;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.71rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .copy-button:hover {
+        border-color: var(--accent);
+      }
+
+      .media-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+      }
+
+      .asset-meta {
+        display: grid;
+        gap: 6px;
+      }
+
+      .thumb,
+      .video-wrap {
+        appearance: none;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #0c1a2d;
+        cursor: pointer;
+        transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+      }
+
+      .thumb:hover,
+      .video-wrap:hover {
+        transform: translateY(-1px);
+        border-color: var(--accent);
+      }
+
+      .thumb img,
+      .video-wrap video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+      }
+
+      .video-wrap video {
+        aspect-ratio: 16 / 9;
+      }
+
+      .asset-caption {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .details-toggle {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.14);
+        overflow: hidden;
+      }
+
+      .details-toggle summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .details-toggle summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .details-arrow {
+        font-size: 0.9rem;
+        line-height: 1;
+        transition: transform 160ms ease;
+      }
+
+      .details-toggle[open] .details-arrow {
+        transform: rotate(180deg);
+      }
+
+      .details-body {
+        display: grid;
+        gap: 18px;
+        padding: 0 14px 14px;
+      }
+
+      .link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .inline-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.26);
+        text-decoration: none;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .inline-link:hover {
+        border-color: var(--accent);
+      }
+
+      .summary-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .summary-box {
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+      }
+
+      .summary-label {
+        display: block;
+        margin-bottom: 6px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .summary-value {
+        font-size: 0.97rem;
+        line-height: 1.4;
+        word-break: break-word;
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 8px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.24);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.74rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .settings {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .setting {
+        min-width: 120px;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.25);
+        display: inline-grid;
+        gap: 4px;
+      }
+
+      .setting-key {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.66rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+
+      .setting-value {
+        font-size: 0.82rem;
+        line-height: 1.35;
+        word-break: break-word;
+      }
+
+      pre {
+        margin: 0;
+        max-height: 320px;
+        overflow: auto;
+        padding: 16px;
+        border: 1px solid var(--line);
+        background: rgba(9, 19, 34, 0.96);
+        color: #dbe8fb;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.76rem;
+        line-height: 1.5;
+      }
+
+      .empty {
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .status {
+        padding: 14px 2px 0;
+        border-top: 1px solid var(--line-strong);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .modal[hidden] {
+        display: none;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(5, 10, 18, 0.68);
+        backdrop-filter: blur(10px);
+      }
+
+      .modal-panel {
+        width: min(1280px, 100%);
+        max-height: 90vh;
+        overflow: auto;
+        border: 1px solid var(--line);
+        background: #cfd1cb;
+        box-shadow: 0 32px 80px rgba(17, 18, 20, 0.24);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .modal-copy {
+        display: grid;
+        gap: 4px;
+      }
+
+      .modal-title {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .modal-subtitle {
+        color: var(--muted);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.75rem;
+        word-break: break-all;
+      }
+
+      .modal-close {
+        appearance: none;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.34);
+        color: var(--ink);
+        cursor: pointer;
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      .modal-stage {
+        min-height: 360px;
+        display: grid;
+        place-items: center;
+        background: #091322;
+      }
+
+      .modal-stage img,
+      .modal-stage video {
+        display: block;
+        width: 100%;
+        max-height: 72vh;
+        object-fit: contain;
+      }
+
+      @media (max-width: 1100px) {
+        .grid {
+          column-count: 2;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .shell {
+          padding: 0 14px 18px;
+        }
+
+        .hero {
+          min-height: 180px;
+          grid-template-columns: 40px 1fr 40px;
+        }
+
+        .hero-copy {
+          padding: 30px 12px;
+        }
+
+        .grid {
+          column-count: 1;
+          column-gap: 0;
+        }
+      }
+
+      @media (max-width: 560px) {
+        h1 {
+          font-size: clamp(2.2rem, 10vw, 3.1rem);
+        }
+
+        .header-stats {
+          justify-content: stretch;
+        }
+
+        .stat-chip {
+          flex: 1 1 120px;
+        }
+
+        .card {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <section class="hero">
+        <div class="tech-marker" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <div class="eyebrow">Fal Output Diagnostics</div>
+          <h1>CASED Request Gallery</h1>
+          <p>Technical review console for embedded FAL requests, rendered outputs, source inputs, and model configuration.</p>
+          <div id="header-stats" class="header-stats"></div>
+        </div>
+        <div class="tech-marker" aria-hidden="true"></div>
+      </section>
+
+      <section id="card-grid" class="grid"></section>
+      <div id="status" class="status">
+        Loading embedded request data...
+      </div>
+    </div>
+
+    <div id="asset-modal" class="modal" hidden>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-header">
+          <div class="modal-copy">
+            <div id="modal-title" class="modal-title"></div>
+            <div id="modal-subtitle" class="modal-subtitle"></div>
+          </div>
+          <button id="modal-close" class="modal-close" type="button" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+          <div id="modal-stage" class="modal-stage"></div>
+        </div>
+      </div>
+    </div>
+
+    <script id="request-data" type="application/json">
+{
+  "generated_at": "2026-03-05T22:51:01.219392",
+  "project_ref": "vxdmipbkwsbsmnxzdppz",
+  "bucket": "cased",
+  "request_count": 7,
+  "requests": [
+    {
+      "request_name": "chestplate-ansysSimulation-image",
+      "request_id": "ebb68d49-5118-4cad-8401-d92d83eb0bcd",
+      "endpoint": "fal-ai/nano-banana-2/edit",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/nano-banana-2",
+        "operation": "edit"
+      },
+      "model_settings": {
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836945
+      },
+      "payload": {
+        "prompt": "show this exact model in ANSYS (LS-DYNA / Mechanical) undergoing energy absorption and deformation simulations, same angle as reference",
+        "image_urls": [
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/2d81baecb86f.png"
+        ],
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836945
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/2d81baecb86f.png"
+      ],
+      "output_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-images/c857f626ea36.png"
+      ],
+      "output_video_urls": []
+    },
+    {
+      "request_name": "chestplate-from-Ref-image",
+      "request_id": "d1a7f4ea-606b-484e-b79f-aa9317a0e68c",
+      "endpoint": "fal-ai/nano-banana-2/edit",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/nano-banana-2",
+        "operation": "edit"
+      },
+      "model_settings": {
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836946
+      },
+      "payload": {
+        "prompt": "generate a 3d rendering of this chest padding on a black background, the material of the padding should grey made out of a dense foam, base the padding pattern and shape on the attached diagram. Use the blue padding render as a reference for render camera angle and lighting. The padding should be in the shape of the breastplate in the photo. ",
+        "image_urls": [
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/132652a143c6.png",
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/25577e8cccff.png",
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/3c3abe49499b.png"
+        ],
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836946
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/132652a143c6.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/3c3abe49499b.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/25577e8cccff.png"
+      ],
+      "output_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-images/62e8a79adbfc.png"
+      ],
+      "output_video_urls": []
+    },
+    {
+      "request_name": "chestplate-labsetting-image",
+      "request_id": "0ca69035-8cdd-448f-aa33-8dbef3148b14",
+      "endpoint": "fal-ai/nano-banana-2/edit",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/nano-banana-2",
+        "operation": "edit"
+      },
+      "model_settings": {
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "2K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836946
+      },
+      "payload": {
+        "prompt": "show this exact chest plate padding  undergoing impact tests in a lab setting, close up, .heic, slowmo. empty background behind plate",
+        "image_urls": [
+          "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/2d81baecb86f.png"
+        ],
+        "num_images": 1,
+        "aspect_ratio": "16:9",
+        "resolution": "2K",
+        "output_format": "png",
+        "safety_tolerance": "4",
+        "limit_generations": true,
+        "enable_web_search": false,
+        "sync_mode": false,
+        "seed": 1523836946
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/2d81baecb86f.png"
+      ],
+      "output_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-images/5bb3c8a47718.png"
+      ],
+      "output_video_urls": []
+    },
+    {
+      "request_name": "chestplate-loop-video",
+      "request_id": "e9c02029-58cf-4fcd-bbb1-57fb61d35c02",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/kling-video/v3/pro",
+        "operation": "image-to-video"
+      },
+      "model_settings": {
+        "multi_prompt": null,
+        "duration": "6",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5
+      },
+      "payload": {
+        "prompt": "Animate the chestplate twisting and flexing in mid-air to showcase its extreme flexibility, with the diamond-shaped cells shifting, compressing, and stretching as the material warps before it naturally returns to its original flat position",
+        "multi_prompt": null,
+        "start_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/0692aa24c5cf.png",
+        "duration": "6",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5,
+        "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/21bf55cddf6a.png"
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/0692aa24c5cf.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/21bf55cddf6a.png"
+      ],
+      "output_image_urls": [],
+      "output_video_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-videos/537596987758.mp4"
+      ]
+    },
+    {
+      "request_name": "chestplate-reveal-video",
+      "request_id": "6330136a-2989-43e1-82f3-fbafeae8a637",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/kling-video/v3/pro",
+        "operation": "image-to-video"
+      },
+      "model_settings": {
+        "multi_prompt": null,
+        "duration": "4",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5
+      },
+      "payload": {
+        "prompt": "reveal the black chest pad by materializing the chest piece from the outward in, the effect focus on the diamond structure of the foam. Instead of the plate appearing as one solid chunk, it assembles cell-by-cell",
+        "multi_prompt": null,
+        "start_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/ff72013b2fde.png",
+        "duration": "4",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5,
+        "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/6436b144ee26.png"
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/ff72013b2fde.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/6436b144ee26.png"
+      ],
+      "output_image_urls": [],
+      "output_video_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-videos/1b2527b77161.mp4"
+      ]
+    },
+    {
+      "request_name": "chestplate-strike-video",
+      "request_id": "e194240a-6686-4d76-a4b4-8fedecaa4fed",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/kling-video/v3/pro",
+        "operation": "image-to-video"
+      },
+      "model_settings": {
+        "multi_prompt": null,
+        "duration": "4",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5
+      },
+      "payload": {
+        "prompt": "show the impact instrument strike the center of the chestplate causing a slighty ripple in the center, slow mo",
+        "multi_prompt": null,
+        "start_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/164503e98ef4.png",
+        "duration": "4",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5,
+        "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e948f06d96b.png"
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e948f06d96b.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/164503e98ef4.png"
+      ],
+      "output_image_urls": [],
+      "output_video_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-videos/5a4b4428437c.mp4"
+      ]
+    },
+    {
+      "request_name": "chestplate-twist-video",
+      "request_id": "a0e9b428-f67b-476b-a361-bb4ce7a47737",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "model": {
+        "provider": "fal-ai",
+        "model_id": "fal-ai/kling-video/v3/pro",
+        "operation": "image-to-video"
+      },
+      "model_settings": {
+        "multi_prompt": null,
+        "duration": "6",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5
+      },
+      "payload": {
+        "prompt": "Animate the chestplate twisting and flexing in mid-air to showcase its extreme flexibility, with the diamond-shaped cells shifting, compressing, and stretching as the material warps before it naturally returns to its original flat position",
+        "multi_prompt": null,
+        "start_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e7a2e0caba0.png",
+        "duration": "6",
+        "generate_audio": true,
+        "elements": [],
+        "shot_type": "customize",
+        "aspect_ratio": "16:9",
+        "negative_prompt": "blur, distort, and low quality",
+        "cfg_scale": 0.5,
+        "end_image_url": "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/b98284b35f55.png"
+      },
+      "input_image_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/b98284b35f55.png",
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/input-images/8e7a2e0caba0.png"
+      ],
+      "output_image_urls": [],
+      "output_video_urls": [
+        "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/cased/output-videos/4414108e274f.mp4"
+      ]
+    }
+  ]
+}
+    </script>
+
+    <script>
+      const headerStats = document.getElementById("header-stats");
+      const grid = document.getElementById("card-grid");
+      const status = document.getElementById("status");
+      const dataset = JSON.parse(document.getElementById("request-data").textContent);
+      const modal = document.getElementById("asset-modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalSubtitle = document.getElementById("modal-subtitle");
+      const modalStage = document.getElementById("modal-stage");
+      const modalClose = document.getElementById("modal-close");
+
+      const modelLinkOverrides = {
+        "fal-ai/kling-video/v3/pro/image-to-video": {
+          model: "https://fal.ai/models/fal-ai/kling-video/o3/pro/reference-to-video/playground",
+          endpoint: "https://fal.ai/models/fal-ai/kling-video/o3/pro/reference-to-video/playground"
+        }
+      };
+
+      const formatValue = (value) => {
+        if (value === null) return "null";
+        if (Array.isArray(value)) return value.length ? value.join(", ") : "[]";
+        if (typeof value === "object") return JSON.stringify(value);
+        return String(value);
+      };
+
+      const formatDate = (value) => {
+        if (!value) return "n/a";
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return String(value);
+        return new Intl.DateTimeFormat(undefined, {
+          dateStyle: "medium",
+          timeStyle: "short"
+        }).format(date);
+      };
+
+      const escapeHtml = (value) =>
+        String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+
+      const formatKeyLabel = (value) =>
+        String(value || "")
+          .replaceAll("_", " ")
+          .replaceAll("-", " ")
+          .replace(/\b\w/g, (char) => char.toUpperCase());
+
+      const formatRequestTitle = (name) => {
+        const parts = String(name || "")
+          .split("-")
+          .filter(Boolean)
+          .map((part) => part.charAt(0).toUpperCase() + part.slice(1));
+
+        const last = parts[parts.length - 1];
+        if (last === "Image" || last === "Video") {
+          const base = parts.slice(0, -1).join(" ");
+          return `
+            <span class="title-with-tag">
+              <span>${escapeHtml(base)}</span>
+              <span class="title-tag">${escapeHtml(last)}</span>
+            </span>
+          `;
+        }
+
+        return escapeHtml(parts.join(" "));
+      };
+
+      const buildHeaderStats = () => {
+        const totals = (dataset.requests || []).reduce(
+          (summary, request) => {
+            summary.outputs += (request.output_image_urls?.length || 0) + (request.output_video_urls?.length || 0);
+            summary.inputs += request.input_image_urls?.length || 0;
+            return summary;
+          },
+          { outputs: 0, inputs: 0 }
+        );
+
+        headerStats.innerHTML = `
+          <div class="stat-chip">
+            <span class="label">Requests</span>
+            <span class="value">${escapeHtml(dataset.request_count || 0)}</span>
+          </div>
+          <div class="stat-chip">
+            <span class="label">Outputs</span>
+            <span class="value">${escapeHtml(totals.outputs)}</span>
+          </div>
+          <div class="stat-chip">
+            <span class="label">Inputs</span>
+            <span class="value">${escapeHtml(totals.inputs)}</span>
+          </div>
+          <div class="stat-chip">
+            <span class="label">Generated</span>
+            <span class="value">${escapeHtml(formatDate(dataset.generated_at))}</span>
+          </div>
+        `;
+      };
+
+      const buildSettings = (settings) => {
+        const entries = Object.entries(settings || {});
+        if (!entries.length) {
+          return '<div class="empty">No explicit model settings recorded.</div>';
+        }
+        return entries
+          .map(
+            ([key, value]) => `
+              <div class="setting">
+                <span class="setting-key">${escapeHtml(formatKeyLabel(key))}</span>
+                <span class="setting-value">${escapeHtml(formatValue(value))}</span>
+              </div>
+            `
+          )
+          .join("");
+      };
+
+      const buildImageGrid = (items) => {
+        if (!items || !items.length) {
+          return '<div class="empty">No images attached.</div>';
+        }
+        return `
+          <div class="media-grid">
+            ${items
+              .map(
+                ({ url, label }) => `
+                  <div class="asset-meta">
+                    <button class="thumb" type="button" data-asset-kind="image" data-asset-url="${escapeHtml(url)}" data-asset-label="${escapeHtml(label)}">
+                      <img src="${escapeHtml(url)}" alt="${escapeHtml(label)}">
+                    </button>
+                    ${label ? `<div class="asset-caption">${escapeHtml(label)}</div>` : ""}
+                  </div>
+                `
+              )
+              .join("")}
+          </div>
+        `;
+      };
+
+      const buildVideoGrid = (urls, showCaptions = true) => {
+        if (!urls || !urls.length) {
+          return '<div class="empty">No videos attached.</div>';
+        }
+        return `
+          <div class="media-grid">
+            ${urls
+              .map((url, index) => ({ url, index }))
+              .map(
+                ({ url, index }) => `
+                  <div class="asset-meta">
+                    <button class="thumb video-wrap" type="button" data-asset-kind="video" data-asset-url="${escapeHtml(url)}" data-asset-label="Video ${index + 1}">
+                      <video autoplay muted loop playsinline preload="metadata" src="${escapeHtml(url)}"></video>
+                    </button>
+                    ${showCaptions ? `<div class="asset-caption">Video ${index + 1}</div>` : ""}
+                  </div>
+                `
+              )
+              .join("")}
+          </div>
+        `;
+      };
+
+      const openAssetModal = (kind, url, label) => {
+        modalTitle.textContent = label || (kind === "video" ? "Video" : "Image");
+        modalSubtitle.textContent = url;
+        modalStage.innerHTML = kind === "video"
+          ? `<video controls autoplay muted loop playsinline src="${escapeHtml(url)}"></video>`
+          : `<img src="${escapeHtml(url)}" alt="${escapeHtml(label || "Asset")}">`;
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeAssetModal = () => {
+        modal.hidden = true;
+        modalStage.innerHTML = "";
+        document.body.style.overflow = "";
+      };
+
+      const copyPrompt = async (text) => {
+        if (!text) return false;
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "absolute";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        const didCopy = document.execCommand("copy");
+        document.body.removeChild(textarea);
+        return didCopy;
+      };
+
+      const buildCard = (request, index) => {
+        const payloadJson = JSON.stringify(request.payload, null, 2);
+        const isKlingVideo = request.endpoint === "fal-ai/kling-video/v3/pro/image-to-video";
+        const linkOverride = modelLinkOverrides[request.endpoint] || {};
+        const modelPageUrl = linkOverride.model || (request.model?.model_id ? `https://fal.ai/models/${request.model.model_id}` : null);
+        const endpointUrl = linkOverride.endpoint || (request.endpoint ? `https://fal.ai/models/${request.endpoint}` : null);
+        const inputItems = (request.input_image_urls || []).map((url, inputIndex) => {
+          if (isKlingVideo) {
+            return {
+              url,
+              label: inputIndex === 0 ? "First" : inputIndex === 1 ? "Last" : `Input ${inputIndex + 1}`
+            };
+          }
+          return { url, label: `Input ${inputIndex + 1}` };
+        });
+        const outputImageItems = (request.output_image_urls || []).map((url, outputIndex) => ({
+          url,
+          label: `Output ${outputIndex + 1}`
+        }));
+
+        const article = document.createElement("article");
+        article.className = "card";
+        article.innerHTML = `
+          <div class="card-header">
+            <div class="card-header-top">
+              <div class="section-title">RQ-${String(index + 1).padStart(2, "0")} / ${escapeHtml(request.model?.operation || "Unknown")}</div>
+              <button class="copy-button" type="button" data-copy-prompt="${escapeHtml(request.payload?.prompt || "")}">Copy Prompt</button>
+            </div>
+            <h2 class="card-title">${formatRequestTitle(request.request_name)}</h2>
+            <p class="subtle">${escapeHtml(request.payload?.prompt || "No prompt recorded.")}</p>
+          </div>
+
+          <section class="section">
+            <div class="section-title">Output</div>
+            ${request.output_video_urls?.length ? buildVideoGrid(request.output_video_urls, false) : buildImageGrid(outputImageItems)}
+          </section>
+
+          <section class="section">
+            <div class="section-title">${isKlingVideo ? "Frames" : "Inputs"}</div>
+            ${buildImageGrid(inputItems)}
+          </section>
+
+          <details class="details-toggle">
+            <summary><span>Details</span><span class="details-arrow">↓</span></summary>
+            <div class="details-body">
+              <div class="link-row">
+                ${modelPageUrl ? `<a class="inline-link" href="${escapeHtml(modelPageUrl)}" target="_blank" rel="noreferrer">Model</a>` : ""}
+                ${endpointUrl ? `<a class="inline-link" href="${escapeHtml(endpointUrl)}" target="_blank" rel="noreferrer">Endpoint</a>` : ""}
+              </div>
+
+              <section class="section">
+                <div class="section-title">Model Settings</div>
+                <div class="settings">${buildSettings(request.model_settings)}</div>
+              </section>
+
+              <section class="section">
+                <div class="section-title">Request Summary</div>
+                <div class="summary-grid">
+                  <div class="summary-box">
+                    <span class="summary-label">Endpoint</span>
+                    <span class="summary-value">${escapeHtml(request.endpoint || "n/a")}</span>
+                  </div>
+                  <div class="summary-box">
+                    <span class="summary-label">Request ID</span>
+                    <span class="summary-value">${escapeHtml(request.request_id || "n/a")}</span>
+                  </div>
+                </div>
+                <div class="badge-row">
+                  <span class="badge">${escapeHtml(request.model?.model_id || "unknown model")}</span>
+                  <span class="badge">${escapeHtml(request.model?.operation || "unknown operation")}</span>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-title">Payload</div>
+                <pre>${escapeHtml(payloadJson)}</pre>
+              </section>
+            </div>
+          </details>
+        `;
+        return article;
+      };
+
+      const renderDataset = (sourceDataset, sourceLabel) => {
+        grid.innerHTML = "";
+        buildHeaderStats();
+        (sourceDataset.requests || []).forEach((request, index) => {
+          grid.appendChild(buildCard(request, index));
+        });
+        status.innerHTML = `Loaded ${escapeHtml(sourceDataset.request_count || 0)} requests from <code>${escapeHtml(sourceLabel)}</code> / <code>${escapeHtml(sourceDataset.project_ref || "no project")}</code> / <code>${escapeHtml(sourceDataset.bucket || "no bucket")}</code>`;
+      };
+
+      grid.addEventListener("click", async (event) => {
+        const asset = event.target.closest("[data-asset-url]");
+        if (asset) {
+          openAssetModal(asset.dataset.assetKind, asset.dataset.assetUrl, asset.dataset.assetLabel);
+          return;
+        }
+
+        const copyButton = event.target.closest("[data-copy-prompt]");
+        if (!copyButton) return;
+
+        const previousLabel = copyButton.textContent;
+        try {
+          const didCopy = await copyPrompt(copyButton.dataset.copyPrompt);
+          copyButton.textContent = didCopy ? "Copied" : "Failed";
+        } catch (error) {
+          copyButton.textContent = "Failed";
+        }
+
+        setTimeout(() => {
+          copyButton.textContent = previousLabel;
+        }, 1200);
+      });
+
+      modalClose.addEventListener("click", closeAssetModal);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeAssetModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) {
+          closeAssetModal();
+        }
+      });
+
+      renderDataset(dataset, "embedded request data");
+    </script>
+  </body>
+</html>

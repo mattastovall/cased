@@ -1,0 +1,22 @@
+-- Continue inserting styles from CSV data (part 7)
+INSERT INTO styles (name, slug, thumb_url, json) VALUES
+('Red Core Techpropaganda Aesthetic Detailed', 'red-core-techpropaganda-aesthetic-detailed', 'https://assets-themes.s3.amazonaws.com/generations/style_red_core_techpropaganda_aesthetic_detailed.png', '{}'),
+('Red Cosmos Soviet Realist Aesthetic', 'red-cosmos-soviet-realist-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_red_cosmos_soviet_realist_aesthetic.png', '{}'),
+('Red Monolith Digital Apocalypse Aesthetic', 'red-monolith-digital-apocalypse-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_red_monolith_digital_apocalypse_aesthetic.png', '{}'),
+('Renaissance Draftline Mechanicalhumanism Aesthetic Detailed', 'renaissance-draftline-mechanicalhumanism-aesthetic-detailed', 'https://assets-themes.s3.amazonaws.com/generations/style_renaissance_draftline_mechanicalhumanism_aesthetic_detailed.png', '{}'),
+('Retro Fantasy Anime Dreamcore Aesthetic', 'retro-fantasy-anime-dreamcore-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_retro_fantasy_anime_dreamcore_aesthetic.png', '{}'),
+('Retro Futurist Cosmic Collage Aesthetic', 'retro-futurist-cosmic-collage-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_retro_futurist_cosmic_collage_aesthetic.png', '{}'),
+('Retro Futurist Toon Aesthetic', 'retro-futurist-toon-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_retro_futurist_toon_aesthetic.png', '{}'),
+('Retro Futurist Warm Glow Aesthetic', 'retro-futurist-warm-glow-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_retro_futurist_warm_glow_aesthetic.png', '{}'),
+('Retro Psychedelic Inkscape Aesthetic', 'retro-psychedelic-inkscape-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_retro_psychedelic_inkscape_aesthetic.png', '{}'),
+('Retrofuturist Noir Aesthetic', 'retrofuturist-noir-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_retrofuturist_noir_aesthetic.png', '{}'),
+('Sketchbook Collage Aesthetic', 'sketchbook-collage-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_sketchbook_collage_aesthetic.png', '{}'),
+('Soft Austere Minimalism Aesthetic', 'soft-austere-minimalism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_soft_austere_minimalism_aesthetic.png', '{}'),
+('Soft Dreamy Neon Retrowave Aesthetic', 'soft-dreamy-neon-retrowave-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_soft_dreamy_neon_retrowave_aesthetic.png', '{}'),
+('Soft Ghibli Flatstyle Aesthetic Detailed', 'soft-ghibli-flatstyle-aesthetic-detailed', 'https://assets-themes.s3.amazonaws.com/generations/style_soft_ghibli_flatstyle_aesthetic_detailed.png', '{}'),
+('Soft Surreal Minimalism Aesthetic', 'soft-surreal-minimalism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_soft_surreal_minimalism_aesthetic.png', '{}'),
+('Soft Utopian Sci Fi Surrealism Aesthetic', 'soft-utopian-sci-fi-surrealism-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_soft_utopian_sci_fi_surrealism_aesthetic.png', '{}'),
+('Softpop Newsurrealism Glamplastic Aesthetic', 'softpop-newsurrealism-glamplastic-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_softpop_newsurrealism_glamplastic_aesthetic.png', '{}'),
+('Solar Mythic Sciwestern Aesthetic', 'solar-mythic-sciwestern-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_solar_mythic_sciwestern_aesthetic.png', '{}'),
+('Stonepunk Mythic Aesthetic', 'stonepunk-mythic-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_stonepunk_mythic_aesthetic.png', '{}'),
+('Surreal Motion Blur Glitchcore Aesthetic', 'surreal-motion-blur-glitchcore-aesthetic', 'https://assets-themes.s3.amazonaws.com/generations/style_surreal_motion_blur_glitchcore_aesthetic.png', '{}');

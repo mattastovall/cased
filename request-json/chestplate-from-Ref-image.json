@@ -1,0 +1,17 @@
+{
+  "prompt": "generate a 3d rendering of this chest padding on a black background, the material of the padding should grey made out of a dense foam, base the padding pattern and shape on the attached diagram. Use the blue padding render as a reference for render camera angle and lighting. The padding should be in the shape of the breastplate in the photo. ",
+  "image_urls": [
+    "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772729788027-image.png",
+    "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772730565894-image.png",
+    "https://vxdmipbkwsbsmnxzdppz.supabase.co/storage/v1/object/public/images/1772730438614-image.png"
+  ],
+  "num_images": 1,
+  "aspect_ratio": "16:9",
+  "resolution": "1K",
+  "output_format": "png",
+  "safety_tolerance": "4",
+  "limit_generations": true,
+  "enable_web_search": false,
+  "sync_mode": false,
+  "seed": 1523836946
+}

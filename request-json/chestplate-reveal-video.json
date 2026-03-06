@@ -1,0 +1,13 @@
+{
+  "prompt": "reveal the black chest pad by materializing the chest piece from the outward in, the effect focus on the diamond structure of the foam. Instead of the plate appearing as one solid chunk, it assembles cell-by-cell",
+  "multi_prompt": null,
+  "start_image_url": "https://v3b.fal.media/files/b/0a90fbf2/D88eK8C6brw--yiiYh1nt_Frame%201533209345.png",
+  "duration": "4",
+  "generate_audio": true,
+  "elements": [],
+  "shot_type": "customize",
+  "aspect_ratio": "16:9",
+  "negative_prompt": "blur, distort, and low quality",
+  "cfg_scale": 0.5,
+  "end_image_url": "https://v3b.fal.media/files/b/0a90fbf2/LwVPYoAAA23RQkuN4XF1n_26fccc6d-3b74-44c1-a4c9-8654355aab16%20(1).png"
+}
